@@ -1,58 +1,58 @@
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include "main.h"
 
 /**
-* alloc_grid - nested loop to make grid
-* @width: width input
-* @height: height input
-* Return: pointer to 2 dim. array
-*/
 
-int **alloc_grid(int width, int height)
+ * _strdup - duplicate to new memory space location
 
-{
-	int **mee;
-	int x, y;
+ * @str: char
 
-	if (width <= 0 || height <= 0)
+ * Return: 0
 
-	return (NULL);
+ */
 
-	mee = malloc(sizeof(int *) * height);
-
-	if (mee == NULL)
-
-	return (NULL);
-
-	for (x = 0; x < height; x++)
+char *_strdup(char *str)
 
 {
-	mee[x] = malloc(sizeof(int) * width);
 
-	if (mee[x] == NULL)
-{
+	char *aaa;
 
-	for (; x >= 0; x--)
+	int i, r = 0;
 
-	free(mee[x]);
 
-	free(mee);
 
-	return (NULL);
+	if (str == NULL)
 
-}
+		return (NULL);
 
-	}
+	i = 0;
 
-	for (x = 0; x < height; x++)
-{
+	while (str[i] != '\0')
 
-	for (y = 0; y < width; y++)
+		i++;
 
-	mee[x][y] = 0;
 
-	}
-	return (mee);
+
+	aaa = malloc(sizeof(char) * (i + 1));
+
+
+
+	if (aaa == NULL)
+
+		return (NULL);
+
+
+
+	for (r = 0; str[r]; r++)
+
+		aaa[r] = str[r];
+
+
+
+	return (aaa);
+
 }
 
