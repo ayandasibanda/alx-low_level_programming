@@ -9,32 +9,37 @@
  * Return: 0 if successful, 1 if incorrect number of arguments,
  *         2 if negative number of bytes
  */
-int main(int argc, char **argv)
+
+int main(int argc, char *argv[])
 {
-        int num_bytes, i;
+	int bytes, i;
+	char *arr;
 
-        if (argc != 2)
-        {
-                printf("Error\n");
-                return (1);
-        }
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
 
-        num_bytes = atoi(argv[1]);
+	bytes = atoi(argv[1]);
 
-        if (num_bytes < 0)
-        {
-                printf("Error\n");
-                return (2);
-        }
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
 
-        /* Print opcodes */
-        unsigned char *opcode_ptr = (unsigned char *)main;
-        for (i = 0; i < num_bytes; i++)
-        {
-                printf("%02x", *(opcode_ptr + i));
-        }
-        printf("\n");
+	arr = (char *)main;
 
-        return (0);
+	for (i = 0; i < bytes; i++)
+	{
+		if (i == bytes - 1)
+		{
+			printf("%02hhx\n", arr[i]);
+			break;
+		}
+		printf("%02hhx ", arr[i]);
+	}
+	return (0);
 }
 
