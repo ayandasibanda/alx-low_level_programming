@@ -7,16 +7,14 @@
  *         If malloc fails, the function terminates with a status value of 98
  */
 
-
 void *malloc_checked(unsigned int b)
 {
-	void *ptr = malloc(b);
+    void *ptr;
 
-	if (ptr == NULL)
-	{
-		exit(98);
-	}
+    ptr = malloc(b);
 
-	return (ptr);
+    if (ptr == NULL)
+        exit(98);
+
+    return ptr;
 }
-
