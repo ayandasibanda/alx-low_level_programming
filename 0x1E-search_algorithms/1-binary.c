@@ -16,33 +16,25 @@ int binary_search(int *array, size_t size, int value)
 {
         size_t i, left, right;
 
-        // Check if the array is NULL
-        if (array == NULL)
-                return (-1);
+	if (array == NULL)
+		return (-1);
 
-        // Binary search implementation
-        for (left = 0, right = size - 1; right >= left;)
-        {
-                printf("Searching in array: ");
-                for (i = left; i < right; i++)
-                        printf("%d, ", array[i]);
-                printf("%d\n", array[i]);
+	for (left = 0, right = size - 1; right >= left;)
+	{
+		printf("Searching in array: ");
+		for (i = left; i < right; i++)
+			printf("%d, ", array[i]);
+		printf("%d\n", array[i]);
 
-                // Calculate the middle index
-                i = left + (right - left) / 2;
+		i = left + (right - left) / 2;
+		if (array[i] == value)
+			return (i);
+		if (array[i] > value)
+			right = i - 1;
+		else
+			left = i + 1;
+	}
 
-                // Check if the value is found at the middle index
-                if (array[i] == value)
-                        return (i);
-
-                // Adjust the search range based on the comparison with the value
-                if (array[i] > value)
-                        right = i - 1;
-                else
-                        left = i + 1;
-        }
-
-        // Value not found in the array
-        return (-1);
+	return (-1);
 }
 
