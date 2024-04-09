@@ -18,26 +18,18 @@
  */
 int linear_search(int *array, size_t size, int value)
 {
-        size_t i = 0;
+       size_t i;
 
-        // Check if the array is valid or empty
-        if (!array || size == 0)
-                return (-1);
+	if (array == NULL)
+		return (-1);
 
-        // Iterate through each element of the array
-        while (i < size)
-        {
-                printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+	for (i = 0; i < size; i++)
+	{
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		if (array[i] == value)
+			return (i);
+	}
 
-                // Check if the current element matches the desired value
-                if (array[i] == value)
-                        return (i);
-
-                // Move to the next element
-                i++;
-        }
-
-        // Value not found in the array
-        return (-1);
+	return (-1);
 }
 
