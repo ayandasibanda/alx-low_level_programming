@@ -17,11 +17,9 @@ int _binary_search(int *array, size_t left, size_t right, int value)
 {
         size_t i;
 
-        // Check if the array is NULL
         if (array == NULL)
                 return (-1);
 
-        // Binary search implementation
         while (right >= left)
         {
                 printf("Searching in array: ");
@@ -38,7 +36,6 @@ int _binary_search(int *array, size_t left, size_t right, int value)
                         left = i + 1;
         }
 
-        // Value not found in the array
         return (-1);
 }
 
@@ -58,11 +55,9 @@ int exponential_search(int *array, size_t size, int value)
 {
         size_t i = 0, right;
 
-        // Check if the array is NULL
         if (array == NULL)
                 return (-1);
 
-        // Exponential search implementation
         if (array[0] != value)
         {
                 for (i = 1; i < size && array[i] <= value; i = i * 2)
